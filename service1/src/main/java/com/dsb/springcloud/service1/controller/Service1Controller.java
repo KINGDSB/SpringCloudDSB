@@ -32,6 +32,10 @@ public class Service1Controller {
         return id;
     }
 
+    /**
+     * 限流接口 需要在nacos中 配置protected-resource
+     * @return
+     */
     @GetMapping("/get-sentinel")
     @SentinelResource(value = "protected-resource", blockHandler = "getSentinelBlock")
     public String getSentinel() {
