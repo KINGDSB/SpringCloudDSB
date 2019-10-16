@@ -16,6 +16,12 @@ public class Service1Controller {
     @Value("${sleep}")
     private Integer sleep;
 
+    @Value("${commonStr}")
+    private String commonStr;
+
+    @Value("${commonStr2}")
+    private String commonStr2;
+
     @GetMapping("/get-date")
     @ResponseBody
     public LocalDateTime getDate() {
@@ -30,6 +36,11 @@ public class Service1Controller {
     @RequestMapping(value = "/get-string", method = RequestMethod.GET)
     public String getString(@RequestParam("id") String id){
         return id;
+    }
+
+    @RequestMapping(value = "/get-common-string", method = RequestMethod.GET)
+    public String getCommonString(String type){
+        return "2".equals(type)?commonStr2:commonStr;
     }
 
     /**

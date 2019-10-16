@@ -1,5 +1,6 @@
-server:
-  port: 9101
+# 端口已配置到nacos中
+#server:
+#  port: 9101
 spring:
   application:
     name: service1
@@ -11,12 +12,22 @@ spring:
         server-addr: 127.0.0.1:8848
       config:
         server-addr: 127.0.0.1:8848
+        shared-dataids: common.yml
+        refreshable-dataids: common.yml
+#        group: service-group
+        namespace: ${env-${spring.profiles.active}-id}
+    # 限流配置
     sentinel:
       datasource:
         ds1:
+          # nacos数据源
           nacos:
             server-addr: 127.0.0.1:8848
             dataId: ${spring.application.name}-flow-rules
             data-type: json
             rule-type: flow
 sleep: 0
+
+## 环境命名空间 id
+env-dev-id: 5f00e808-1dae-4b77-a461-a52baeedea1e
+env-pro-id: 2bd542d1-6d72-4afe-8a9d-1db8764e635a
