@@ -1,5 +1,11 @@
 server:
+  # SSL 默认端口是 443
   port: 9001
+#  ssl:
+#    enabled: true
+#    key-store-password: cUwM9nQE             # 腾讯云申请生成证书时填写的密码，如果申请时没有填写，name下载的证书文件家中会包括一个keystorePass.txt文件，里面就是密码
+#    key-store: classpath:2950251_uniqueauth.com.pfx     # 我自己进行了文件重命名
+#    key-store-type: PKCS12
 spring:
   application:
     name: gateway
